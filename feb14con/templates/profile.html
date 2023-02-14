@@ -1,0 +1,73 @@
+{% extends "layout.html" %}
+{% block content %}
+<div class="main" style="display: flex; justify-content: left; padding-left: 100px">
+  <div
+  style="height: 1457px; width: 732px; margin-top: 48px"
+    class="entry-content"
+  >
+  
+  <p>&nbsp;</p>
+
+      <div class="users" style="overflow: scroll; height: 500px;">
+        {% for user in users %}
+        
+        <div class="box mb-3">
+            <button class="myAnchor">{{user}}</button>
+        </div>
+        {% endfor %}
+      </div>
+    <footer style="text-align: center" class="entry-footer">
+    </footer>
+    <script>
+      const anchors = document.getElementsByClassName("myAnchor");
+      for (let i = 0; i < anchors.length; i++) {
+        anchors[i].addEventListener("click", function() {
+          let innerHTML = this.innerHTML;
+          window.location.href = "/user?data=" + encodeURIComponent(innerHTML);
+        });
+      }
+    </script>
+    
+    <!-- .entry-footer -->
+    
+    <form action="/profile_n" method="get" class="mx-1 mx-md-4">
+          
+        <div class="d-flex flex-row align-items-center mb-4">
+          <i class="fas fa-user fa-lg me-3 fa-fw"></i>
+          <div class="form-outline flex-fill mb-0">
+            <button type="submit" style="margin-top: 24px; margin-right:44px;" class="btn btn-primary">New path</button>
+        </div>
+      </form>
+  </div>
+  <head>
+    <link rel="stylesheet" href="{{ url_for('static',filename='styles.css')}}">
+  </head>
+  <body>
+  <Div Class="Card">
+      <Div Class="Card_background_img"></Div>
+      <Div Class="Card_profile_img"></Div>
+      <Div Class="User_details">
+          <H3>{{ username }}</H3>
+          <P></P>
+      </Div>
+      <Div Class="Card_count">
+          <Div Class="Count">
+              <Div Class="Fans">
+                  <p>{{job}}</p>
+                  <p1>qualification</p1>
+              </Div>
+              <Div Class="Following">
+                  <p>{{instaid}}</p>
+                  <P1>Instagram</P1>
+              </Div>
+              <Div Class="Post">
+                  <p>{{fbid}}</p>
+                  <P1>facebook</P1>
+              </Div>
+          </Div>
+           <Div Class="Btn">Connect!!</Div>
+      </Div>
+  </Div>
+  </body>
+  </html>
+{% endblock %}
